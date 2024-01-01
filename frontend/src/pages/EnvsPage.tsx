@@ -1,4 +1,4 @@
-function Envs() {
+function EnvsPage() {
     return (
         <div>
             Envs
@@ -6,4 +6,4 @@ function Envs() {
     )
 }
 
-export default Envs;
+export default EnvsPage;

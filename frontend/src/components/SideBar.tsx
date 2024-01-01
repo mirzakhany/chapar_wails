@@ -1,8 +1,8 @@
 import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import HomeIcon from "@mui/icons-material/Home";
-import ListIcon from "@mui/icons-material/List";
+import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
+import MenuIcon from "@mui/icons-material/Menu";
 
 interface SideBarProps {
     value: number;
@@ -24,12 +24,12 @@ function SideBar(props: SideBarProps) {
                 textTransform: 'none',
                 borderRight: 1,
                 borderColor: 'divider' ,
-                minHeight: '100vh'
+                minHeight: 'calc(100vh - 64px)',
             }}
 
         >
-            <Tab icon={<HomeIcon />} label="Requests" />
-            <Tab icon={<ListIcon />} label="Envs" />
+            <Tab icon={<SwapHorizIcon fontSize="medium" />} label="Requests" className={'sidebarTab'}/>
+            <Tab icon={<MenuIcon fontSize="medium" />} label="Envs" className={'sidebarTab'}/>
         </Tabs>
     )
 }

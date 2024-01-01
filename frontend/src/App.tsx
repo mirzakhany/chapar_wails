@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import Typography from '@mui/material/Typography';
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import TopBar from "./components/TopBar";
 import SideBar from "./components/SideBar";
-import Envs from "./pages/envs";
+import EnvsPage from "./pages/EnvsPage";
+import RequestsPage from "./pages/RequestsPage";
+import {useTheme} from "@mui/material";
 
 interface TabPanelProps {
     children?: React.ReactNode;
@@ -36,10 +37,12 @@ function TabPanel(props: TabPanelProps) {
 
 function App() {
     const [value, setValue] = React.useState(0);
+    const theme = useTheme(); // Use the theme hook
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
+
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -49,14 +52,10 @@ function App() {
                 sx={{
                     backgroundColor: (theme) => theme.palette.grey[900],
                     flexGrow: 1,
-                    overflow: 'auto',
-                    paddingTop: '38px',
+                    paddingTop: '64px',
                 }}
             >
                 <Grid
-                       sx={{
-                            paddingTop: '20px',
-                       }}
                        spacing={0}
                        container
                        direction="row"
@@ -69,16 +68,17 @@ function App() {
                     </Grid>
                     <Grid item xs>
                         <TabPanel value={value} index={0}>
-                            Requests
+                            <RequestsPage/>
                         </TabPanel>
                         <TabPanel value={value} index={1}>
-                            <Envs/>
+                            <EnvsPage/>
                         </TabPanel>
                     </Grid>
                 </Grid>
             </Box>
         </Box>
     )
+
 }
 
 export default App

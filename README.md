@@ -1,19 +1,20 @@
-# README
+<div align="center">
+  <img src="logo.png" alt="Chapar" width="300"/>
+</div>
 
-## About
+# Chapar
 
-This is the official Wails React-TS template.
+Chapar is a simple and easy to use api testing tools aims to help developers to test their api endpoints.
+it will support http and grpc protocols.
 
-You can configure the project by editing `wails.json`. More information about the project settings can be found
-here: https://wails.io/docs/reference/project-config
+## What Chapar means?
+Chapar was the institution of the royal mounted couriers in ancient Persia.
+The messengers, called Chapar, alternated in stations a day's ride apart along the Royal Road.
+The riders were exclusively in the service of the Great King and the network allowed for messages to be transported from Susa to Sardis (2699 km) in nine days; the journey took ninety days on foot.
 
-## Live Development
+Herodus described the Chapar as follows:
 
-To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
-server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
-and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
-to this in your browser, and you can call your Go code from devtools.
+> There is nothing in the world that travels faster than these Persian couriers. Neither snow, nor rain, nor heat, nor darkness of night prevents these couriers from completing their designated stages with utmost speed.
+>
+> Herodotus, about 440 BC
 
-## Building
-
-To build a redistributable, production mode package, use `wails build`.

@@ -21,9 +21,9 @@ const darkTheme = createTheme({
         },
     },
     components: {
-        MuiButtonBase: {  // This can impact components like Button, IconButton, ListItem, etc.
+        MuiButtonBase: {
             defaultProps: {
-                disableRipple: true,  // No more ripple, on the whole application 💣!
+                disableRipple: true,
             },
         },
     },

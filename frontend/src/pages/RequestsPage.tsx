@@ -10,6 +10,7 @@ import Stack from '@mui/material/Stack';
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import CloseIcon from "@mui/icons-material/Close";
+import AddIcon from "@mui/icons-material/Add";
 import React from "react";
 import { SplitView } from "../components/SplitView";
 
@@ -78,15 +79,16 @@ function RequestsSideBar() {
             style={{ minHeight: 'calc(100vh - 64px)' }}
         >
             <Box
-                component={Paper}
                 sx={{
                     paddingTop:'10px',
                     paddingRight:'10px',
                     borderRight: (t) => `1px solid ${t.palette.divider}`
                 }}>
-                <RequestActions/>
-                <SearchBox/>
-                <RequestList/>
+                <Paper>
+                    <RequestActions/>
+                    <SearchBox/>
+                    <RequestList/>
+                </Paper>
             </Box>
         </Stack>
     )
@@ -99,25 +101,31 @@ function RequestContainer() {
         setValue(newValue);
     };
     return (
-        <Tabs
-            value={value}
-            onChange={handleChange}
-            orientation="horizontal"
-            textColor={"inherit"}
-            variant="scrollable"
-            scrollButtons="auto"
-            aria-label="Tabs"
-        >
-            <Tab label={
-                <span>
-                    {"Test"}
-                        <IconButton size="small"  component="div" onClick={() => { alert("Closing this tab..."); }}>
-                        <CloseIcon />
-                    </IconButton>
-                </span>
-            }/>
-            <Tab label="Create User" />
-        </Tabs>
+        <Box sx={{ width: '100%' }}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    orientation="horizontal"
+                    textColor={"inherit"}
+                    variant="scrollable"
+                    indicatorColor="secondary"
+                    scrollButtons="auto"
+                    aria-label="Tabs"
+                >
+                    <Tab label={
+                        <span>
+                            {"Test"}
+                            <IconButton size="small"  component="div" onClick={() => { alert("Closing this tab..."); }}>
+                                <CloseIcon />
+                            </IconButton>
+                        </span>
+                    }/>
+                    <Tab label="Create User" />
+                    <Tab icon={<AddIcon />}/>
+                </Tabs>
+            </Box>
+        </Box>
     )
 }
 
@@ -131,7 +139,7 @@ function RequestsPage() {
             spacing={1}
             component={Paper}
         >
-            <Grid item xs={"auto"}>
+            <Grid item xs={"auto"} style={{marginLeft:'1px'}}>
                 <RequestsSideBar/>
             </Grid>
             <Grid item xs>

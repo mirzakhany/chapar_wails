@@ -8,32 +8,7 @@ import SideBar from "./components/SideBar";
 import EnvsPage from "./pages/EnvsPage";
 import RequestsPage from "./pages/RequestsPage";
 import {useTheme} from "@mui/material";
-
-interface TabPanelProps {
-    children?: React.ReactNode;
-    index: number;
-    value: number;
-}
-
-function TabPanel(props: TabPanelProps) {
-    const { children, value, index, ...other } = props;
-
-    return (
-        <div
-            role="tabpanel"
-            hidden={value !== index}
-            id={`vertical-tabpanel-${index}`}
-            aria-labelledby={`vertical-tab-${index}`}
-            {...other}
-        >
-            {value === index && (
-                <div>
-                    {children}
-                </div>
-            )}
-        </div>
-    );
-}
+import TabPanel from "./components/TabPanel";
 
 function App() {
     const [value, setValue] = React.useState(0);
@@ -52,7 +27,7 @@ function App() {
                 sx={{
                     backgroundColor: (theme) => theme.palette.grey[900],
                     flexGrow: 1,
-                    paddingTop: '64px',
+                    paddingTop: '56px',
                 }}
             >
                 <Grid
@@ -66,11 +41,11 @@ function App() {
                         item xs={"auto"}>
                         <SideBar value={value} handleChange={handleChange}/>
                     </Grid>
-                    <Grid item xs>
-                        <TabPanel value={value} index={0}>
+                    <Grid item xs style={{paddingLeft: '10px'}}>
+                        <TabPanel prefix={"sidebar"} value={value} index={0}>
                             <RequestsPage/>
                         </TabPanel>
-                        <TabPanel value={value} index={1}>
+                        <TabPanel prefix={"sidebar"} value={value} index={1}>
                             <EnvsPage/>
                         </TabPanel>
                     </Grid>

@@ -33,7 +33,7 @@ function SideBar(props: SideBarProps) {
             aria-label="Tabs"
             sx={{
                 textTransform: 'none',
-                minHeight: 'calc(100vh - 64px)',
+                minHeight: 'calc(100vh - 60px)',
                 borderRight: (t) => `1px solid ${t.palette.divider}`
             }}
         >

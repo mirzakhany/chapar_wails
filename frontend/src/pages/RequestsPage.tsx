@@ -12,7 +12,9 @@ import Tab from "@mui/material/Tab";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
 import React from "react";
-import { SplitView } from "../components/SplitView";
+import TabPanel from "../components/TabPanel";
+import RestRequest from "../components/RestRequest";
+
 
 function RequestActions() {
     return (
@@ -76,23 +78,23 @@ function RequestsSideBar() {
             direction="row"
             alignItems="stretch"
             justifyContent="start"
-            style={{ minHeight: 'calc(100vh - 64px)' }}
+            style={{ minHeight: 'calc(100vh - 60px)' }}
         >
             <Box
+                component={Paper}
                 sx={{
                     paddingTop:'10px',
                     paddingRight:'10px',
                     borderRight: (t) => `1px solid ${t.palette.divider}`
                 }}>
-                <Paper>
                     <RequestActions/>
                     <SearchBox/>
                     <RequestList/>
-                </Paper>
             </Box>
         </Stack>
     )
 }
+
 
 function RequestContainer() {
     const [value, setValue] = React.useState(0);
@@ -100,6 +102,7 @@ function RequestContainer() {
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
     };
+
     return (
         <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -125,6 +128,12 @@ function RequestContainer() {
                     <Tab icon={<AddIcon />}/>
                 </Tabs>
             </Box>
+            <TabPanel prefix={"request-item"} value={value} index={0}>
+                <RestRequest/>
+            </TabPanel>
+            <TabPanel prefix={"request-item"} value={value} index={1}>
+                Item Two
+            </TabPanel>
         </Box>
     )
 }
@@ -139,7 +148,7 @@ function RequestsPage() {
             spacing={1}
             component={Paper}
         >
-            <Grid item xs={"auto"} style={{marginLeft:'1px'}}>
+            <Grid item xs={"auto"}>
                 <RequestsSideBar/>
             </Grid>
             <Grid item xs>

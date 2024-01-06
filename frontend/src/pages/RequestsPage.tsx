@@ -79,7 +79,7 @@ function RequestsSideBar() {
             direction="row"
             alignItems="stretch"
             justifyContent="start"
-            style={{ minHeight: 'calc(100vh - 60px)' }}
+            style={{ minHeight: 'calc(100vh - 60px)' , minWidth: '220px'}}
         >
             <Box
                 flex={1}

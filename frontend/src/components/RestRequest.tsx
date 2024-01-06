@@ -1,6 +1,21 @@
 import React, { useState } from 'react';
 import { Box, FormControl, Select, MenuItem, InputLabel, TextField, Button, Typography } from '@mui/material';
 import {SelectChangeEvent} from "@mui/material/Select";
+import Breadcrumbs from '@mui/material/Breadcrumbs';
+import {styled } from '@mui/material/styles';
+
+const RequestNameField = styled(TextField)({
+    '& .MuiInputBase-input': {
+        padding: '4px 8px',
+    },
+    '& .MuiInputLabel-root': {
+        fontSize: '12px',
+        transform: 'translate(14px, 14px) scale(1)',
+    },
+    '& .MuiOutlinedInput-notchedOutline': {
+        borderWidth: '0px',
+    }
+});
 
 function RestRequest() {
     const [method, setMethod] = useState('GET');
@@ -28,7 +43,12 @@ function RestRequest() {
 
     return (
         <Box sx={{ paddingTop: '10px', margin: 'auto' }}>
-            <div style={{marginBottom: '15px'}}>Example / Create user</div>
+            <Breadcrumbs
+                sx={{ marginBottom: '12px' }}
+                aria-label="breadcrumb">
+                <Typography color="text.primary">Example</Typography>
+                <RequestNameField placeholder={"Create user"} size={"small"} />
+            </Breadcrumbs>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px', marginBottom: '20px' }}>
                 <FormControl sx={{ minWidth: 120 }} size="small">
                     <Select

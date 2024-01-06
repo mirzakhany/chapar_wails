@@ -16,6 +16,10 @@ import RequestItem from "../components/RequestItem";
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Split from '@uiw/react-split';
+import { TreeView } from '@mui/x-tree-view/TreeView';
+import { TreeItem } from '@mui/x-tree-view/TreeItem';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 function RequestActions() {
     return (
@@ -69,6 +73,16 @@ function RequestList() {
             <RequestItem type={"OPTION"} name={"Server options"}/>
             <RequestItem type={"HEAD"} name={"This is the head"}/>
         </List>
+        // <TreeView
+        //     aria-label="Request List"
+        //     defaultCollapseIcon={<ExpandMoreIcon />}
+        //     defaultExpandIcon={<ChevronRightIcon />}
+        // >
+        //     <TreeItem nodeId="1" label={<RequestItem type={"GET"} name={"Get User"}/>}></TreeItem>
+        //     <TreeItem nodeId="5" label="Users">
+        //         <TreeItem nodeId="10" label={<RequestItem type={"DELETE"} name={"Delete User"}/>} />
+        //     </TreeItem>
+        // </TreeView>
     )
 }
 

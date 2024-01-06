@@ -5,6 +5,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from "@mui/material/IconButton";
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import Box from "@mui/material/Box";
 
 interface RequestItemProps {
     type: string;

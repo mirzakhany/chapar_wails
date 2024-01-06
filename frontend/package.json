@@ -14,8 +14,10 @@
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.15.2",
     "@mui/material": "^5.15.2",
+    "@uiw/react-split": "^5.9.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-resizable-panels": "^1.0.7"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

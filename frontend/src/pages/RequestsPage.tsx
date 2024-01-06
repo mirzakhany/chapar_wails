@@ -15,7 +15,7 @@ import {styled} from "@mui/material/styles";
 import RequestItem from "../components/RequestItem";
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-
+import Split from '@uiw/react-split';
 
 function RequestActions() {
     return (
@@ -38,25 +38,6 @@ function RequestActions() {
 
 function SearchBox() {
     return (
-        // <Box
-        //     component="form"
-        //     sx={{
-        //         display: 'flex', alignItems: 'center',
-        //         border: (t) => `1px solid ${t.palette.divider}`,
-        //     }}
-        //         borderRadius={"4px"}
-        //         marginTop={"8px"}
-        //         marginLeft={"4px"}
-        //     >
-        //     <InputBase
-        //         sx={{ ml: 1, flex: 1 }}
-        //         placeholder="Search ..."
-        //         inputProps={{ 'aria-label': 'search ...' }}
-        //     />
-        //     <IconButton type="button" sx={{ p: '10px' }} aria-label="search">
-        //         <SearchIcon />
-        //     </IconButton>
-        // </Box>
         <TextField
             size="small"
             id="input-with-icon-textfield"
@@ -101,10 +82,11 @@ function RequestsSideBar() {
             style={{ minHeight: 'calc(100vh - 60px)' }}
         >
             <Box
+                flex={1}
                 sx={{
                     paddingTop:'10px',
                     paddingRight:'10px',
-                    borderRight: (t) => `1px solid ${t.palette.divider}`
+                   // borderRight: (t) => `1px solid ${t.palette.divider}`
                 }}>
                     <RequestActions/>
                     <SearchBox/>
@@ -115,11 +97,13 @@ function RequestsSideBar() {
 }
 
 const RequestTab = styled(Tab)`
-    & .MuiButtonBase-roo .MuiTab-root{
-       max-height: 50px !important;
-       padding: 0px 10px !important;
+   height: 40px;
+   padding: 0;
+   
+   .close-tab-button {
+        height: 10px;
     }
-`;
+` ;
 
 function RequestContainer() {
     const [value, setValue] = React.useState(0);
@@ -129,8 +113,8 @@ function RequestContainer() {
     };
 
     return (
-        <Box sx={{ width: '100%' }}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Box sx={{ width: '100%' , paddingLeft: '5px'}}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider'}}>
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -143,7 +127,9 @@ function RequestContainer() {
                     <RequestTab label={
                         <span>
                             {"Test"}
-                            <IconButton size="small"  component="div" onClick={() => { alert("Closing this tab..."); }}>
+                            <IconButton
+                                className={"close-tab-button"}
+                                size="small" component="span" onClick={() => { alert("Closing this tab..."); }}>
                                 <CloseIcon />
                             </IconButton>
                         </span>
@@ -163,20 +149,12 @@ function RequestContainer() {
 
 function RequestsPage() {
     return (
-        <Grid
-            container
-            direction="row"
-            justifyContent="flex-start"
-            alignItems="stretch"
-            spacing={1}
-        >
-            <Grid item xs={"auto"}>
-                <RequestsSideBar/>
-            </Grid>
-            <Grid item xs>
-                <RequestContainer/>
-            </Grid>
-        </Grid>
+        <Split
+            lineBar={true}
+            mode="horizontal">
+            <RequestsSideBar/>
+            <RequestContainer/>
+        </Split>
     )
 }
 

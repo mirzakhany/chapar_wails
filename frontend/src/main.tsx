@@ -8,9 +8,8 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
 // @ts-ignore
-const darkTheme = createTheme({
+const chaparTheme = createTheme({
     palette: {
         mode: 'light',
         // primary: {
@@ -37,7 +36,7 @@ const root = createRoot(container!)
 
 root.render(
     <React.StrictMode>
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={chaparTheme}>
            <App/>
         </ThemeProvider>
     </React.StrictMode>

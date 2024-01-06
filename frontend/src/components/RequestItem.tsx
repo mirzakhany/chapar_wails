@@ -27,7 +27,6 @@ const RequestType = styled('div')(
 
 const ItemName = styled(ListItemText)(
     ({theme}) => ({
-        maxWidth: '200px',
         '& .MuiListItemText-primary': {
             fontSize: '12px',
             fontWeight: 'normal',
@@ -56,7 +55,7 @@ function RequestItem(props: RequestItemProps) {
         <>
         <ListItemButton
         sx={{
-            maxWidth: '270px',
+           // maxWidth: '270px',
             height: '38px',
             padding: '0px 10px',
         }}

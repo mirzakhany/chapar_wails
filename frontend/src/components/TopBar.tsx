@@ -1,5 +1,3 @@
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import {Divider, FormControl, MenuItem} from "@mui/material";
@@ -21,12 +19,10 @@ function TopBar() {
 
     return (
         <Box
-            position="fixed"
             color="primary"
             sx={{
-                borderBottom: (t) => `1px solid ${t.palette.divider}`,
-                height: '52px',
                 width: '100%',
+                borderBottom: (t) => `1px solid ${t.palette.divider}`,
             }}
         >
                 <Grid container
@@ -42,8 +38,9 @@ function TopBar() {
                     </Grid>
                     <Grid item xs style={{ display: 'flex', justifyContent: 'flex-end' }}>
                         <Box display="flex" alignItems="center" height="100%">
-                            <FormControl  sx={{ m: 1, minWidth: '200px' }} size="small">
+                            <FormControl  sx={{ m: '8px', minWidth: '200px' }} size="small">
                                 <Select
+                                    size={"small"}
                                     value={activeEnv}
                                     onChange={handleChange}
                                     displayEmpty

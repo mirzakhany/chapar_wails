@@ -28,7 +28,7 @@ function RestRequest() {
 
     return (
         <Box sx={{ paddingTop: '10px', margin: 'auto' }}>
-            <div style={{marginBottom: '20px'}}>Example / Create user</div>
+            <div style={{marginBottom: '15px'}}>Example / Create user</div>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px', marginBottom: '20px' }}>
                 <FormControl sx={{ minWidth: 120 }} size="small">
                     <Select
@@ -41,6 +41,8 @@ function RestRequest() {
                         <MenuItem value={'POST'}>POST</MenuItem>
                         <MenuItem value={'PUT'}>PUT</MenuItem>
                         <MenuItem value={'DELETE'}>DELETE</MenuItem>
+                        <MenuItem value={'HEAD'}>HEAD</MenuItem>
+                        <MenuItem value={'OPTION'}>OPTION</MenuItem>
                     </Select>
                 </FormControl>
                 <TextField
@@ -58,7 +60,7 @@ function RestRequest() {
                         marginRight: '10px',
                         marginLeft: '5px',
                     }}
-                    variant="contained" color="secondary" onClick={handleSendRequest}>
+                    variant="contained" onClick={handleSendRequest}>
                     Send
                 </Button>
             </Box>
